@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="java.io.*,java.util.*" %>
+<%@ page import="java.io.*,java.util.*" session="true" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,15 +13,19 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>TP Servlet/JSP</h1>
         <ul>
-            <%String username = (String)request.getAttribute("user");
+            Session ID: <%= session.getId() %>   <br/>
+            Session creation time: <%= new Date(session.getCreationTime()) %>
+            
+            <li><a href="/tpservlet/Hello">Hello page</a></li>
+            <%String username = (String)session.getAttribute("user");
             if (username != null) {%>
-                <li><a href="/tpservlet/Logout">Logout page</a></li>
-            <%}%>
-
-            <li><a href="/tpservlet/Hello">Hello</a></li>
-            <li><a href="/tpservlet/Login">Login page</a></li>
+                <li><a href="/tpservlet/Logout">Logout</a></li>
+            <%} else {%>
+                <li><a href="/tpservlet/Login">Login page</a></li>
+            <%}%>    
+       
         </ul>
     </body>
 </html>

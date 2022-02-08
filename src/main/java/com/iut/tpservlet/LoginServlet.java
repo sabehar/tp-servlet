@@ -100,6 +100,7 @@ public class LoginServlet extends HttpServlet {
                           + username + "\n" +
                           "  <li><b>Mot de passe</b>: "
                           + pwd + "\n" +
+                          "<li><a href=\"/tpservlet\">Retour à l'index</a></li>" +     
                        "</ul>\n" +
                     "</body>" +
                  "</html>"

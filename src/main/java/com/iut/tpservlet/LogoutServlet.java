@@ -7,6 +7,7 @@ package com.iut.tpservlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -56,17 +57,23 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        try ( PrintWriter out = response.getWriter()) {
+        try ( PrintWriter out = response.getWriter()) {       
             response.setContentType("text/html");   
               
             request.getRequestDispatcher("index.jsp").include(request, response);  
               
             HttpSession session = request.getSession();  
+            
+            if ((String)session.getAttribute("user") == null){
+                final String message = "Vous n'êtes pas connecté.";
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, message);
+            }
+            
             session.invalidate();   
               
             out.print("Vous vous êtes bien déconnecté !");  
               
-            out.close();  
+            out.close();
         }
     } 
 
