@@ -18,6 +18,7 @@ import javax.persistence.JoinColumn;
  * @author sabehar
  */
 @Entity
+@Table(name = "StationTrain")
 public class StationTrain implements Serializable {
 
     private static final long serialVersionUID = 1L;
