@@ -17,7 +17,7 @@ public class Voyage {
     public Voyage(StationTrain depart, StationTrain arrivee, int prix) {
         this.depart = depart;
         this.arrivee = arrivee;
-        prix = depart.getPrix() + arrivee.getPrix();
+        prix = depart.getPrice() + arrivee.getPrice();
     }
     
 }
