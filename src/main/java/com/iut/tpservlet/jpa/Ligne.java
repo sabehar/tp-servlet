@@ -6,35 +6,39 @@
 package com.iut.tpservlet.jpa;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
  * @author sabehar
  */
+@Entity
 public class Ligne {
-    private final String lettre;
+    @Id
+    private int numero;
     private List<StationTrain> stations;
 
-    public Ligne(String lettre) {
-        this.lettre = lettre;
+    public Ligne() {
+    }
+
+    public Ligne(int numero) {
+        this.numero = numero;
         stations = new ArrayList<>();
     }
   
-    public Collection<StationTrain> getStations() {
-        return Collections.unmodifiableCollection(stations);
+    public List<StationTrain> getStations() {
+        return Collections.unmodifiableList(stations);
     }
 
     public void setStations(List<StationTrain> stations) {
         this.stations = stations;
     }
 
-    public String getLettre() {
-        return lettre;
+    public int getNumero() {
+        return numero;
     }
    
     public void addStation(StationTrain s) {

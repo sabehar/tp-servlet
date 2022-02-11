@@ -29,14 +29,20 @@ public class StationTrain implements Serializable {
     
     @JoinColumn(name = "")
     private String name;
-    private String address;
     private int price;
+    private Ligne ligne;
+    private int position;
     
-    public StationTrain(int id, String name, String address, int price) {
+    public StationTrain(int id, String name, int price, Ligne ligne) {
         this.id = id;
         this.name = name;
-        this.address = address;
         this.price = price;
+        this.ligne = ligne;
+        if (ligne.getStations().isEmpty()) {
+            position = 1;
+        } else {
+            position = ligne.getStations().size() + 1;
+        }
     }
 
     public StationTrain() {
@@ -59,20 +65,35 @@ public class StationTrain implements Serializable {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public int getPrice() {
+    public int getPrix() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrix(int price) {
         this.price = price;
+    }
+
+    public Ligne getLigne() {
+        return ligne;
+    }
+
+    public void setLigne(Ligne ligne) {
+        this.ligne = ligne;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
+    
+    
+    @Override
+    public String toString() {
+        return "Station [id=" + getId() + ", Ville=" + getName() +
+               ", Ligne=" + ligne.getNumero() + ", Prix=" + getPrix() + "]";
     }
     
 }

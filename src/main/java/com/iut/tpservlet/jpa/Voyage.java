@@ -5,19 +5,31 @@
  */
 package com.iut.tpservlet.jpa;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+
 /**
  *
  * @author Sami
  */
-public class Voyage {
+@Entity
+@IdClass(CompositeKey.class)
+public class Voyage implements Serializable {
+    @Id
     private StationTrain depart;
+    @Id
     private StationTrain arrivee;
     private int prix;
+
+    public Voyage() {
+    }
 
     public Voyage(StationTrain depart, StationTrain arrivee, int prix) {
         this.depart = depart;
         this.arrivee = arrivee;
-        prix = depart.getPrice() + arrivee.getPrice();
+        prix = depart.getPrix() + arrivee.getPrix();
     }
     
 }
