@@ -1,5 +1,5 @@
 # tp-servlet
-TP Licence Pro WEB - JSP/JPA/Servlet
+TP Licence Pro WEB - JSP/JPA/Servlet - Ambroise GABERT, Sami BÉHAR
 
 Temps passé à faire de la configuration et à régler des erreurs liées au serveur Tomcat/à la BDD/à l'IDE/au cache : 85%
 
