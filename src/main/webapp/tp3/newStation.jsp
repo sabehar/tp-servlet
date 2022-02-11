@@ -29,7 +29,7 @@
             <h1>TP3 Servlet/JSP</h1>
 
             <h3>Création d'une nouvelle station</h3>
-            <form>
+            <form method="post" action="NewStation">
                 <div class="gridItem">
                     <label for="nomStation">Nom de la station :</label>
                     <input class="form-control" type="text" id="nomStation" name="nomStation" required>

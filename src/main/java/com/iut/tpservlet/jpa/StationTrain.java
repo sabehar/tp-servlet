@@ -7,31 +7,44 @@
 package com.iut.tpservlet.jpa;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
 
 /**
  *
  * @author sabehar
  */
 @Entity
-@Table(name = "StationTrain")
+@Table(name = "station_train")
 public class StationTrain implements Serializable {
-
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
-    @JoinColumn(name = "")
+    @Column(name = "nom", nullable = false)
     private String name;
+    
+    @Column(name = "prix", nullable = false)
     private int price;
-    private Ligne ligne;
+    
+    @Column(name = "position", nullable = false)
     private int position;
+
+    @PrimaryKeyJoinColumn(name = "position")
+    @ManyToOne(optional = false)
+    private Ligne ligne;
+    
     
     public StationTrain(int id, String name, int price, Ligne ligne) {
         this.id = id;

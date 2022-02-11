@@ -25,7 +25,14 @@
             <h1>TP3 Servlet/JSP</h1>
 
             <h3>Création d'une nouvelle ligne</h3>
-            <button class="btn btn-primary" type="submit">Créer une nouvelle ligne</button>
+             <form method="post" action="NewLigne">
+                <div class="gridItem">
+                    <label for="numero">Numero de ligne :</label>
+                    <input class="form-control" type="text" id="numero" name="numero" required>
+                </div>
+              
+                <button class="btn btn-primary" type="submit">Créer une nouvelle ligne</button>
+            </form> 
         </form>    
     </div>
 </body>

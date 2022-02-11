@@ -25,7 +25,8 @@
             <%} else {%>
                 <li><a href="/tpservlet/Login">Login page</a></li>
             <%}%>    
-       
+            <li><a href="/tpservlet/NewLigne">Nouvelle ligne</a></li>   
+            <li><a href="/tpservlet/NewStation">Nouvelle station</a></li>    
         </ul>
     </body>
 </html>
